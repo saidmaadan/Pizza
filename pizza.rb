@@ -6,12 +6,14 @@ class Pizza
   end
 
   def vegetarian?
-    true
+    @toppings.all? do |topping|
+      topping.vegetarian == true
+    end
   end
 
-  # def add_topping(toppings)
-  #   @toppings << toppings
-  # end
+  def add_topping(toppings)
+    @toppings << toppings
+  end
 end
 
 class Topping
@@ -20,5 +22,5 @@ class Topping
   def initialize(name, vegetarian: false )
     @name = name
     @vegetarian = vegetarian
-end
+  end
 end
