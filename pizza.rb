@@ -28,9 +28,25 @@ class Pizza
   #   end
   #   true
 
+  def deliver!
+    @delivery_time = Time.new + 30*60
+  end
+
+  def delivered
+    @delivered = Time.new
+  end
+
+  def late?
+    if @delivered > @delivery_time
+      true
+    else
+      false
+    end
+  end
 
   def add_topping(toppings)
     @toppings << toppings
+    toppings
   end
 end
 
